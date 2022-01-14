@@ -1,0 +1,34 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/"> Game Application </a>
+    <div class="navbar">
+      <div class="navbar-nav">
+        <a class="nav-link active" href="/">
+          Home <span class="sr-only">(current)</span>
+        </a>
+        <a class="nav-link" href="allgames"> All Games</a>
+        <a class="nav-link" href="gameratings"> Game Ratings</a>
+        <a class="nav-link" href="nintendoSwitch"> Nintendo Switch</a>
+        <a class="nav-link" href="playstation"> PS4</a>
+        <a class="nav-link" href="psVita"> PS Vita</a>
+        <a class="nav-link" href="Xbox"> Xbox</a>
+        <a class="nav-link" href="Nintendo3DS"> Nintendo 3DS</a>
+        <a class="nav-link" href="NintendoWiiU"> Nintendo Wii U</a>
+
+        <!--<a class="nav-link" href="tasters"> Tasters</a>
+        <a class="nav-link" href="tastings"> Tastings</a>
+        <a class="nav-link" href="search-tastings"> Search Tastings</a>-->
+      
+        <% if(user) { %>
+        <a class="nav-link" href="saved-tastings"> Search Tastings</a>
+        <a class="nav-link" href="create-tasting"> Write a Review </a>
+        <a class="nav-link" href="logout"> <%= user.email %> (Logout) </a> <%
+        }%> <% if(!user) { %>
+        <!--<a class="nav-link" href="login"> Login </a>
+        <a class="nav-link" href="join"> Register </a>-->
+        <% } %>
+      </div>
+    </div>
+  </nav>
+</header>
+
