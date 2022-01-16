@@ -82,7 +82,7 @@ app.get("/", homeController.list);
 
 
 app.get("/allgames", gameController.list);
-//app.get("/allgames/delete/:id", gameController.delete);
+app.get("/allgames/delete/:id", gameController.delete);
 
 app.get("/gameratings", gameRatingController.list);
 
