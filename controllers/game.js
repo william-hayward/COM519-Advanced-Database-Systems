@@ -2,6 +2,7 @@ const Games = require("../models/Game");
 const bodyParser = require("body-parser");
 const req = require("express/lib/request");
 
+
 exports.list = async (req, res) => {
     try {
         console.log(req.query)
@@ -72,3 +73,29 @@ exports.updaterating = async (req, res) => {
         });
     }
 };
+
+exports.create = async (req, res) => {
+
+    try {
+      const game = new Games({ 
+          title: req.body.title,
+          platform: req.body.platform,
+          genre: req.body.genre,
+          release_date: req.body.release_date,
+          online_features: req.body.online_features,
+          played: req.body.played,
+          rating: req.body.rating
+        });
+      await game.save();
+      res.redirect('/allgames/?message=The game has been added')
+    } catch (e) {
+      if (e.errors) {
+        console.log(e.errors);
+        res.render('create-game', { errors: e.errors })
+        return;
+      }
+      return res.status(400).send({
+        message: JSON.parse(e),
+      });
+    }
+  };

@@ -5,7 +5,8 @@ const mongoose = require("mongoose");
 const chalk = require("chalk");
 const bodyParser = require("body-parser");
 const expressSession = require("express-session");
-//const User = require("./models/User");
+const User = require("./models/User");
+
 
 
 /**
@@ -19,6 +20,7 @@ const playstationVitaController = require("./controllers/vita")
 const xboxController = require("./controllers/xbox")
 const nintendo3DSController = require("./controllers/3DS")
 const nintendowiiuController = require("./controllers/wiiu")
+const userController = require("./controllers/user")
 
 
 const homeController = require("./controllers/home");
@@ -120,7 +122,20 @@ app.get("/NintendoWiiU/delete/:id", nintendowiiuController.delete);
 app.get("/NintendoWiiU/update/:id", nintendowiiuController.edit);
 app.post("/NintendoWiiU/update/:id", nintendowiiuController.update);
 
+app.get("/register", (req, res) => {
+  res.render('register', { errors: {} })
+});
+app.post("/register", userController.create);
 
+app.get("/login", (req, res) => {
+  res.render('login', { errors: {} })
+});
+app.post("/login", userController.login);
+
+app.get("/create-game", authMiddleware, (req, res) => {
+  res.render("create-game", { errors: {} });
+});
+app.post("/create-game", gameController.create);
 
 app.listen(PORT, () => {
   console.log(
