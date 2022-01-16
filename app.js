@@ -83,20 +83,43 @@ app.get("/", homeController.list);
 
 app.get("/allgames", gameController.list);
 app.get("/allgames/delete/:id", gameController.delete);
+app.get("/allgames/update/:id", gameController.edit);
+app.post("/allgames/update/:id", gameController.update);
 
 app.get("/gameratings", gameRatingController.list);
+app.get("/gameratings/update/:id", gameController.editrating);
+app.post("/gameratings/update/:id", gameController.updaterating);
 
 app.get("/nintendoswitch", nintendoSwitchController.list);
+app.get("/nintendoswitch/delete/:id", nintendoSwitchController.delete);
+app.get("/nintendoswitch/update/:id", nintendoSwitchController.edit);
+app.post("/nintendoswitch/update/:id", nintendoSwitchController.update);
 
 app.get("/playstation", playstationController.list);
+app.get("/playstation/delete/:id", playstationController.delete);
+app.get("/playstation/update/:id", playstationController.edit);
+app.post("/playstation/update/:id", playstationController.update);
 
 app.get("/psVita", playstationVitaController.list);
+app.get("/psVita/delete/:id", playstationVitaController.delete);
+app.get("/psVita/update/:id", playstationVitaController.edit);
+app.post("/psVita/update/:id", playstationVitaController.update);
 
 app.get("/Xbox", xboxController.list);
+app.get("/Xbox/delete/:id", xboxController.delete);
+app.get("/Xbox/update/:id", xboxController.edit);
+app.post("/Xbox/update/:id", xboxController.update);
 
 app.get("/Nintendo3DS", nintendo3DSController.list);
+app.get("/Nintendo3DS/delete/:id", nintendo3DSController.delete);
+app.get("/Nintendo3DS/update/:id", nintendo3DSController.edit);
+app.post("/Nintendo3DS/update/:id", nintendo3DSController.update);
 
 app.get("/NintendoWiiU", nintendowiiuController.list);
+app.get("/NintendoWiiU/delete/:id", nintendowiiuController.delete);
+app.get("/NintendoWiiU/update/:id", nintendowiiuController.edit);
+app.post("/NintendoWiiU/update/:id", nintendowiiuController.update);
+
 
 
 app.listen(PORT, () => {

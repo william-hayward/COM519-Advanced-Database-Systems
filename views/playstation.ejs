@@ -55,6 +55,7 @@
             <th>Online Features</th>
             <th>Played</th>
             <th>Rating</th>
+            <th></th>
 
         </tr>
 
@@ -71,7 +72,9 @@
                 <td><%=  game.release_date  %></td> 
                 <td><%=  game.online_features  %></td> 
                 <td><%=  game.played  %></td> 
-                <td><%=  game.rating  %></td>    
+                <td><%=  game.rating  %></td>   
+                <td class="text-center"><a class='btn btn-info btn-xs' href="/playstation/update/<%= game.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a> 
+                  <a  href="/playstation/delete/<%= game.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>    
             </tr>
             
          <%  
