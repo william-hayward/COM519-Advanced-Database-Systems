@@ -49,6 +49,8 @@
                 <p style="color: red"><%= errors['title'].message %></p>
                 <% } %>
 
+                <br>
+
                 <div class="form-group">
                     <label for="platform">Platform</label>
                     <input
@@ -62,6 +64,8 @@
                     <% if (errors['platform']) { %>
                     <p style="color: red"><%= errors['platform'].message %></p>
                     <% } %>
+
+                    <br>
 
                 <div class="form-group">
                     <label for="genre">Genre</label>
@@ -77,6 +81,8 @@
                     <p style="color: red"><%= errors['genre'].message %></p>
                     <% } %>
                 
+                    <br>
+
                 <div class="form-group">
                     <label for="release_date">Release Date</label>
                     <input
@@ -91,6 +97,8 @@
                     <p style="color: red"><%= errors['release_date'].message %></p>
                     <% } %>
                 
+                    <br>
+
                 <div class="form-group">
                     <label for="online_features">Online Features</label>
                     <input
@@ -105,6 +113,8 @@
                     <p style="color: red"><%= errors['online_features'].message %></p>
                     <% } %>
                 
+                    <br>
+
                 <div class="form-group">
                     <label for="played">Played Status</label>
                     <input
@@ -118,6 +128,8 @@
                     <% if (errors['played']) { %>
                     <p style="color: red"><%= errors['played'].message %></p>
                     <% } %>
+
+                    <br>
 
                 <div class="form-group">
                     <label for="rating">Game Rating</label>
@@ -133,6 +145,7 @@
                     <p style="color: red"><%= errors['rating'].message %></p>
                     <% } %>
               
+                    <br>
 
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

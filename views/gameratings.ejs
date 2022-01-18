@@ -52,7 +52,9 @@
             <th>Title</th>
             <th>Platform</th>
             <th>Rating</th>
+            <% if(user) { %>
             <th></th>
+            <% } %> 
 
         </tr>
 
@@ -67,8 +69,10 @@
                 <td><%=  game.title  %></td>
                 <td><%=  game.platform %></td>
                 <td><%=  game.rating  %></td>  
+                <% if(user) { %>
                 <td class="text-center"><a class='btn btn-info btn-xs' href="/gameratings/update/<%= game.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a>  
-            </tr>
+                  <% } %>
+              </tr>
             
          <%  
           });

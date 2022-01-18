@@ -2,23 +2,6 @@ const User = require('../models/User');
 const bcrypt = require('bcrypt');
 
 
-exports.create = async (req, res) => {
-    try {
-
-        const user = new User({ email: req.body.email, password: req.body.password });
-        await user.save();
-        res.redirect('/?message=user saved')
-    } catch (e) {
-        if (e.errors) {
-            console.log(e.errors);
-            res.render('register', { errors: e.errors })
-            return;
-        }
-        return res.status(400).send({
-            message: JSON.parse(e),
-        });
-    }
-};
 
 exports.login = async (req, res) => {
     try {

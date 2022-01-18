@@ -54,7 +54,9 @@
             <th>Release Date</th>
             <th>Online Features</th>
             <th>Played</th>
+            <% if(user) { %>
             <th></th>
+            <% } %> 
 
         </tr>
 
@@ -71,8 +73,10 @@
                 <td><%=  game.release_date  %></td> 
                 <td><%=  game.online_features  %></td> 
                 <td><%=  game.played  %></td> 
+                <% if(user) { %>
                 <td class="text-center"><a class='btn btn-info btn-xs' href="/allgames/update/<%= game.id %>" ><span class="glyphicon glyphicon-edit"></span> Edit</a> 
-                <a  href="/allgames/delete/<%= game.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>   
+                <a  href="/allgames/delete/<%= game.id %>" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Delete</a></td>  
+                <% } %> 
             </tr>
             
          <%  

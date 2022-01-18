@@ -1,30 +1,100 @@
 <header>
+  <% if(!user) { %>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/"> Game Application </a>
-    <div class="navbar">
-      <div class="navbar-nav">
-        <a class="nav-link active" href="/">
-          Home <span class="sr-only"></span>
-        </a>
-        <a class="nav-link" href="allgames"> All Games</a>
-        <a class="nav-link" href="gameratings"> Game Ratings</a>
-        <a class="nav-link" href="nintendoSwitch"> Nintendo Switch</a>
-        <a class="nav-link" href="playstation"> PS4</a>
-        <a class="nav-link" href="psVita"> PS Vita</a>
-        <a class="nav-link" href="Xbox"> Xbox</a>
-        <a class="nav-link" href="Nintendo3DS"> Nintendo 3DS</a>
-        <a class="nav-link" href="NintendoWiiU"> Nintendo Wii U</a>
-
-      
-        <% if(user) { %>
-        <a class="nav-link" href="create-game"> Add A Game </a>
-        <a class="nav-link" href="logout"> <%= user.email %> (Logout) </a> <%
-        }%> <% if(!user) { %>
-        <a class="nav-link" href="login"> Login </a>
-        <a class="nav-link" href="register"> Register </a>
-        <% } %>
-      </div>
+    <a class="navbar-brand" href="/">Game Database</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" ></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="allgames">All Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gameratings">Game Ratings</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Different Platforms
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="nintendoSwitch">Nintendo Switch</a>
+            <a class="dropdown-item" href="playstation">PS4</a>
+            <a class="dropdown-item" href="psVita">PS Vita</a>
+            <a class="dropdown-item" href="Xbox">Xbox</a>
+            <a class="dropdown-item" href="Nintendo3DS">Nintendo 3DS</a>
+            <a class="dropdown-item" href="NintendoWiiU">Nintendo Wii U</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Add A Game</a>
+        </li>
+        <a class="nav-link" href="search">Search For A Game</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User (Not Logged in)
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="login">Login</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </nav>
+  <%}%>
+<% if(user) { %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Game Database</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="allgames">All Games</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gameratings">Game Ratings</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Different Platforms
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="nintendoSwitch">Nintendo Switch</a>
+            <a class="dropdown-item" href="playstation">PS4</a>
+            <a class="dropdown-item" href="psVita">PS Vita</a>
+            <a class="dropdown-item" href="Xbox">Xbox</a>
+            <a class="dropdown-item" href="Nintendo3DS">Nintendo 3DS</a>
+            <a class="dropdown-item" href="NintendoWiiU">Nintendo Wii U</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="create-game">Add A Game</a>
+        </li>
+        <a class="nav-link" href="search">Search For A Game</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User (Logged in: <%= user.email %>)
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item disabled" href="login">Login</a>
+            <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="logout">Logout User</a>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+  <% } %>
 </header>
 

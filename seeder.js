@@ -40,6 +40,9 @@ async function main() {
 
     const data = await fs.readFile(path.join(__dirname, "games.json"), "utf8");
     await db.collection("games").insertMany(JSON.parse(data));
+
+    const dataTwo = await fs.readFile(path.join(__dirname, "user.json"), "utf-8");
+    await db.collection("users").insertMany(JSON.parse(dataTwo));
     
    
     load.stop();

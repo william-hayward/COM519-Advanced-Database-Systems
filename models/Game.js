@@ -28,4 +28,5 @@ const gameSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+gameSchema.index({'$**': 'text'});
 module.exports = mongoose.model("Game", gameSchema);

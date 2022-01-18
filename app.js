@@ -21,6 +21,7 @@ const xboxController = require("./controllers/xbox")
 const nintendo3DSController = require("./controllers/3DS")
 const nintendowiiuController = require("./controllers/wiiu")
 const userController = require("./controllers/user")
+const gameApiController = require("./controllers/api/searching");
 
 
 const homeController = require("./controllers/home");
@@ -122,15 +123,21 @@ app.get("/NintendoWiiU/delete/:id", nintendowiiuController.delete);
 app.get("/NintendoWiiU/update/:id", nintendowiiuController.edit);
 app.post("/NintendoWiiU/update/:id", nintendowiiuController.update);
 
-app.get("/register", (req, res) => {
-  res.render('register', { errors: {} })
+app.get("/search",(req,res) => {
+  res.render('search', gameApiController);
 });
-app.post("/register", userController.create);
+app.get("/api/searching", gameApiController.list);
 
 app.get("/login", (req, res) => {
   res.render('login', { errors: {} })
 });
 app.post("/login", userController.login);
+
+app.get("/logout", async (req, res) => {
+  req.session.destroy();
+  global.user = false;
+  res.redirect('/');
+})
 
 app.get("/create-game", authMiddleware, (req, res) => {
   res.render("create-game", { errors: {} });
