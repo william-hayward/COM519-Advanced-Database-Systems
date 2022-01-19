@@ -1,9 +1,9 @@
-# Database Starter Project 
+# Database Assessment - William Hayward 
 
-## Getting Started
+## How To Run Project
 
 - Clone this repo 
 - Install the dependencies -  `npm install`
-- Rename .env.example to .env. You won't normally need to change the values in this file.
-- If this is your first time getting started then run the seeder - `node seeder`
-- Run the project in development mode - `npm run dev`
+- Rename .env.example to .env.
+- Then run the seeder to populate the database - `node seeder`
+- Run the project - `npm run dev`
